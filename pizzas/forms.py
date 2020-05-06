@@ -8,6 +8,7 @@ class CommentForm(forms.ModelForm):
         model = Topping
         #model = Comment
         fields = ['name']
+        #fields = ['text']
         labels = {'name':''}
         #labels = {'name':'Comment:'}
 

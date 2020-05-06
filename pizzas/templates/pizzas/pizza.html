@@ -4,8 +4,17 @@
 
     <p>Pizza: {{ pizza }}</p>
 
-    <ul>
+    {% if pizza.name == 'Hawaiian' %}
+    <img src="https://cdn.vox-cdn.com/thumbor/EfQjxLoSgcjB_LnyX2OqM2UHD6w=/0x0:2000x1333/920x613/filters:focal(840x507:1160x827):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/55188531/hawaiian_pizza_sh.0.jpg">
+    {% elif pizza.name == 'Meat Lovers' %}
+    <img src="https://d332juqdd9b8hn.cloudfront.net/wp-content/uploads/2019/04/rotm-meatlovers.jpg">
+    {% elif pizza.name == 'Vegan' %}
+    <img src="https://www.tasteofhome.com/wp-content/uploads/2019/07/vegan-pizza-shutterstock_245533780-800x450.jpg">
+    {% endif %}
 
+    <p>Toppings:</p>
+    <ul>
+        
         {% for topping in toppings %} <!--this is recognized bc context was sent over-->
         <li>
             <p>{{ topping.name|linebreaks }}</p>
@@ -15,9 +24,22 @@
         <li> There are no toppings for this pizza yet.</li>
         {% endfor %}
         
+      
 
     </ul>
-
+<!--New stuff here-->
+<!--
+   <ol>
+       {% for comment in post.comments.all %}
+       <div class="comment">
+            <p>{{ comment.text|linebreaks }}</p>
+       </div>
+       {% empty %}
+       <p>No comments yet</p>
+       {% endfor %}
+   </ol>>
+-->
+<!--end of new stuff-->
     <p>
         <a href="{% url 'pizzas:new_comment' pizza.id %}">Add new comment</a>
     </p>

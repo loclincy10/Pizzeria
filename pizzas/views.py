@@ -25,6 +25,7 @@ def pizza(request, pizza_id):
 
 def new_comment(request, pizza_id):
     pizza = Pizza.objects.get(id=pizza_id)
+
     if request.method != 'POST':
         form = CommentForm()
     else:
